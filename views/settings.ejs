@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+    <h2>Kullanıcı Ayarları</h2>
+    <ul>
+        <form action="/settings" method="POST">
+        <li>User First Name: <input type="text" name="firstName" value="<%= user.firstName %>"></li>
+        <li>User Last Name: <input type="text" name="lastName" value="<%= user.lastName %>"></li>
+        <li>User Email: <input type="text" name="email" value="<%= user.email %>"></li>
+        <li>User password: <input type="password" name="password"></li>
+        <button type="submit">Güncelle...</button>
+        </form>
+    </ul>
+</body>
+</html>

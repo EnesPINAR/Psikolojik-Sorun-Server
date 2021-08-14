@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt başarılı</title>
+</head>
+<body>
+    <h1>Başarıyla randevunuz oluşturuldu</h1>
+    <h3>Randevu bilgileriniz e-posta yolu ile size iletilmiştir.</h2>
+    <h2>5 saniye içide anasayfaya yönlendireleceksiniz...</h3>
+    
+    <script>
+        setTimeout(()=>{
+            let body = document.querySelector("body");
+            let append =" <meta http-equiv='refresh' content='0; URL=http://localhost:5000/' />"
+            body.innerHTML += append
+        },4000)
+    </script>
+</body>
+</html>

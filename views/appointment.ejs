@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevu Al</title>
+</head>
+<body>
+    Randevuyu alacağınız psikolog : <%=psychologist.firstName%> <%=psychologist.lastName%> <br>
+    Ranevuyu almak istediğiniz zamanı seçiniz (Seçtiğiniz saat randevu başlangıç saati olarak kabul edilecektir.) : 
+    <input type="hidden" value="<%=psychologist.avaible_time%>" id="str">
+    <form action="/appointment" method="POST" style="display:flex"> 
+        <input type="hidden" name="psychologist_id" value="<%= psychologist._id %>" id="psychologist_id">
+        <input type="date" name="appointment_date" onchange="Check_Date(this)">
+        <select name="appointment_time" class="appointment_time" id="select"></select>
+        <button type="submit">Gönder</button>
+    </form>
+<!-- <script>
+    let str = "<%=psychologist.avaible_time%>"
+    let date1 = str.split("-")
+    let time2 = date1[0].split(":")
+    let hours_end = Number(time2[0])
+    let time = date1[1].split(":")
+    time = Number(time[0])
+    for(; hours_end < time ;){
+        let select = document.getElementById("select")
+        let option = "<option value=' "+ hours_end+":00'>"+ hours_end+ ":00"+"</option>"
+        select.innerHTML += option
+        console.log(hours_end)
+        hours_end++
+    }
+</script> -->
+<script src="http://localhost:5000/public/js/jQuery.js" defer></script>
+<script src="http://localhost:5000/public/js/appointment.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psikolojik Alanlar | Ekle, Sil, Düzenle</title>
+</head>
+<body>
+    <h2>Psikoloji Alanları</h2>
+    <ul>
+        <% psychology_fields.forEach(function(psychology_fields){ %>
+            <li><%= psychology_fields.fieldsName %></li>
+        <% }); %>
+    </ul>
+    <div class="float__right" style="float:right; margin-right: 500px;">
+        <h2>Alan Ekle</h2>
+        <form action="/admin/psychology_fields/add" method="POST">
+            <input type="text" name="fieldsName"/>
+            <button type="submit">Ekle</button>
+        </form>
+    </div>
+</body>
+</html>

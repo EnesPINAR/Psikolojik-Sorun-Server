@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:5000/public/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <title>Zoom | Clone</title>
+</head>
+<body>
+    <div class="row" style="margin: 0; padding: 0; height: 100%;">
+        <div class="col-md-9" style="margin: 0; padding: 0; height: 100%;">
+            <div class="cameras-buttons">
+                <div id="video-grid">
+
+                </div>
+                <div class="bottom-bar">
+                    <div class="microphone-camera">
+                        <button onclick="muteUnmute()" class="microphone" style="width:65.26px;">
+                            <i class="fas fa-microphone"></i>
+                            <p>Mute</p>
+                        </button>
+                        <button onclick="playStop()" class="camera">
+                            <i class="fas fa-video"></i>
+                            <p>Stop video</p>
+                        </button>
+                    </div>
+                    <div class="security-participant-chatbtn">
+                        <input style="position: absolute; opacity: 0;" id="item-to-copy">
+                        <button onclick="copyToClipboard()" class="security">
+                            <i class="fas fa-user-plus"></i>
+                            <p>Invite People</p>
+                        </button>
+                        <button class="participant">
+                            <i class="fas fa-users"></i>
+                            <p>Participant</p>
+                        </button>
+                        <button class="chatbtn">
+                            <i class="fas fa-comment-alt"></i>
+                            <p>Chat</p>
+                        </button>
+                    </div>
+                    <div class="leave-button">
+                        <a href="#">Leave Meeting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" style="margin: 0; padding: 0; height: 100%;">
+            <div class="chat">
+                <h5 class="chat-header">Chat</h5>
+                <div class="message">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <input type="text" placeholder="Type message here.." id="chat-input">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const ROOM_ID = '<%= roomId %>';
+    console.log(ROOM_ID)
+function copyToClipboard() {
+    $('#item-to-copy').val(ROOM_ID)
+    $('#item-to-copy').select()
+    document.execCommand('copy');
+    alert(`Oda ID'si kopyalandı..`);
+}
+</script>
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://localhost:5000/public/js/peer.js"></script>
+</html>

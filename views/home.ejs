@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+</head>
+<body>
+    <h1>Psikologlar</h1>
+    <% psychologist.forEach(function(psychologist){ %>
+        <ul>
+            <li><%= psychologist.firstName %><%= psychologist.lastName %> <a href="/appointment/<%= psychologist._id %>" >Randevu Al</a></li>
+        </ul>
+      <% }); %>
+</body>
+</html>
